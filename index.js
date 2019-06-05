@@ -28,23 +28,25 @@ gates.forEach( gate => {
     console.log( uri + gate.gateName);
     
     http.get( uri + gate.gateName, (resp) => {
-    let data = '';
+      let data = '';
 
-     // A chunk of data has been recieved.
-    resp.on('data', (chunk) => {
-      data += chunk;
-    });
-
-    // The whole response has been received. Print out the result.
-    resp.on('end', () => {
-      conditions = JSON.parse(data).conditions;
-      conditions.forEach(condition => {
-          gate.conditions.push(condition);
+      // A chunk of data has been recieved.
+      resp.on('data', (chunk) => {
+        data += chunk;
       });
-      console.log(gate);
-    });
+
+      // The whole response has been received. Print out the result.
+      resp.on('end', () => {
+        conditions = JSON.parse(data).conditions;
+     
+        conditions.forEach(condition => {
+          gate.conditions.push(condition);
+        });
+     
+        console.log(gate);
+      });
     
-  }).on("error", (err) => {
-    console.log("Error: " + err.message);
-  });
+    }).on("error", (err) => {
+      console.log("Error: " + err.message);
+    });
 });
