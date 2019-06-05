@@ -1,0 +1,15 @@
+
+POST http://localhost:9000/api/qualitygates/create_condition?gateId=34&metric=new_security_rating&op=GT&warning=&error=1&period=1
+Authorization: Basic admin admin
+#content-type: application/json
+
+#{ 
+#    "gateId": 6, 
+#    "metric": "coverage", 
+#    "op": "LT", 
+#    "warning": 80, 
+#    "error":  
+#};
+
+
+#http://localhost:9000/api/qualitygates/list
