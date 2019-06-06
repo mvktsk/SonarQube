@@ -23,6 +23,4 @@ exclusions.forEach(exclusion => {
         console.log("Error: " + err.message);
     });
     createExclusionPostRequest.end();
-
-
 });
