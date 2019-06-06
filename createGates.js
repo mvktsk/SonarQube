@@ -3,21 +3,18 @@ const uri = 'localhost';
 const gateUri = '/api/qualitygates/create?name=';
 const conditionUri = '/api/qualitygates/create_condition?gateId=';
 const defaultGateUri = '/api/qualitygates/set_as_default?id=';
-var gates = require('./gates.json');;
+var gates = require('./gates.json');
 
 var options = {
-    auth: '',
-    hostname: '',
-    port: 80,
+    auth: 'admin:admin',
+    hostname: uri,
+    port: 9000,
     path: '/',
     method: 'POST'
 };
 
 gates.forEach( gate => {
     
-    options.auth = 'admin:admin';
-    options.hostname = uri;
-    options.port = 9000;
     options.path = gateUri + gate.gateName;
     
     gatePostRequest = http.request( options, (resp) => {

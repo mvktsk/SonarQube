@@ -1,0 +1,22 @@
+[{
+    "key" : "sonar.coverage.exclusions",
+    "values" : [
+        "**/Scripts/**",
+        "**/Migrations/**"
+    ]
+},
+{
+    "key" : "sonar.cpd.exclusions",
+    "values" : [
+        "**/Scripts/**",
+        "**/Migrations/**"
+    ]
+},
+{
+    "key" : "sonar.global.exclusions",
+    "values" : [
+        "**/VirtoCommerce.Storefront/AutoRestClients/**",
+        "**/wwwroot/lib/**"
+    ]
+}
+]

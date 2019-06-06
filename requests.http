@@ -1,5 +1,7 @@
 
-POST http://localhost:9000/api/qualitygates/create_condition?gateId=34&metric=new_security_rating&op=GT&warning=&error=1&period=1
+#POST http://localhost:9000/api/qualitygates/create_condition?gateId=34&metric=new_security_rating&op=GT&warning=&error=1&period=1
+
+http://localhost:9000/api/settings/values?keys=sonar.coverage.exclusions
 Authorization: Basic admin admin
 #content-type: application/json
 
