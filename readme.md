@@ -9,6 +9,7 @@ Scripts and configuration files can be applied on a new SonarQube installation t
 1. **exclusions.json** - projects file paths or files are excluded from the analysis
 1. **virtoCssProfile.xml** - custom CSS profile backup
 1. **virtoTypeScriptProfile.xml** - custom TypeScript profile backup
+1. **groups.json** - custom user groups and permissions
 
 ## New SonarQube server configuration
 
@@ -39,6 +40,7 @@ To use the configuration correctly, run the js scripts in the following sequence
 1. **createExclusions.js** - exclude file paths or file from quality analysis (to run, type in terminal *node createExclusions.js*)
 1. **createGates.js** - create Red, Orange, Green, Blue quality gates, set Green as default (to run, type in terminal *node createGates.js*)
 1. **createQualityProfiles.js** - create Virto way TypeScript profile and Virto way CSS profile, set them as default (to run, type in terminal *node createQualityProfiles.js*)
+1. **createGroups.js** - create custom TeamLead group and permission (to run, type in terminal *node createGroups.js*)
 
 ## Service files
 
