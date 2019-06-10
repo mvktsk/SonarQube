@@ -1,2 +1,3 @@
-POST http://localhost:9000/api/qualityprofiles/set_default?profileKey=AWssxpmfGKOYdejhJBjo
+#POST http://localhost:9000/api/qualityprofiles/set_default?profileKey=AWssxpmfGKOYdejhJBjo
+post http://localhost:9000/api/user_groups/create?templateId=default_template&groupName=TeamLeads&permission=issueadmin
 Authorization: Basic admin admin
