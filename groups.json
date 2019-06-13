@@ -3,4 +3,5 @@
     "description": "Users who can administer sonar issues",
     "templateId": "default_template",
     "permissions": ["issueadmin"]
-}]
+}
+]

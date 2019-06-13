@@ -15,12 +15,13 @@ var options = {
 groups.forEach(group => {
     options.path = createGroupUri + '?name=' + group.name + '&description=' + encodeURIComponent(group.description);
     
+    let thisgroup = group;
     createGroupPostRequest = http.request(options,(res) => {
         
         console.log(`STATUS: ${res.statusCode}`);
         console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
         if (res.statusCode === 200){
-                setPermissions (group);
+                setPermissions (thisgroup);
         };
     });
     createGroupPostRequest.on("error", (err) => {
