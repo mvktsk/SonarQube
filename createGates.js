@@ -1,5 +1,5 @@
-const http = require('http');
-const uri = 'localhost';
+const http = require('https');
+const uri = 'sonar.virtocommerce.com';
 const gateUri = '/api/qualitygates/create?name=';
 const conditionUri = '/api/qualitygates/create_condition?gateId=';
 const defaultGateUri = '/api/qualitygates/set_as_default?id=';
@@ -8,7 +8,7 @@ var gates = require('./gates.json');
 var options = {
     auth: 'admin:admin',
     hostname: uri,
-    port: 9000,
+    port: 443,
     path: '/',
     method: 'POST'
 };
@@ -33,9 +33,9 @@ gates.forEach( gate => {
         
             createGateConditions (gate);
         
-            if(qualityGate.name === 'Green') {
-                setDefaultGate(qualityGate.id)
-            };
+//            if(qualityGate.name === 'Green') {
+//                setDefaultGate(qualityGate.id)
+//            };
         });
     });
 

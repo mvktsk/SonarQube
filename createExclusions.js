@@ -1,12 +1,12 @@
-const http = require('http');
-const uri = 'localhost';
+const http = require('https');
+const uri = 'sonar.virtocommerce.com';
 const settingsUri = '/api/settings/set?key=';
 var exclusions = require('./exclusions.json');
 
 var options = {
     auth: 'admin:admin',
     hostname: uri,
-    port: 9000,
+    port: 443,
     path: '/',
     method: 'POST'
 };

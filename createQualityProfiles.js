@@ -1,12 +1,12 @@
-const http = require('http');
-const uri = 'localhost';
+const http = require('https');
+const uri = 'sonar.virtocommerce.com';
 const restoreUri = '/api/qualityprofiles/restore';
 const setDefaultUri = '/api/qualityprofiles/set_default';
 
 var options = {
     auth: 'admin:admin',
     hostname: uri,
-    port: 9000,
+    port: 443,
     path: restoreUri,
     method: 'POST',
     headers: {
@@ -51,8 +51,10 @@ profiles.forEach(profile => {
         });
         
         res.on('end', () => {
+            
+            
             profileKey = JSON.parse(data).profile.key;
-            setDefaultProfile (profileKey);
+            //setDefaultProfile (profileKey);
             
             console.log('No more data in response.');
         });

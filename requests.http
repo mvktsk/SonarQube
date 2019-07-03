@@ -1,3 +1,29 @@
 #POST http://localhost:9000/api/qualityprofiles/set_default?profileKey=AWssxpmfGKOYdejhJBjo
-post http://localhost:9000/api/user_groups/create?templateId=default_template&groupName=TeamLeads&permission=issueadmin
+
+#Get all projects from SonarQube
+#post https://sonar.virtocommerce.com/api/components/search_projects?ps=500&organization=virtocommerce
+#Authorization: Basic admin admin
+
+#Get all organizations
+#post https://sonar.virtocommerce.com/api/organizations/search
+#Authorization: Basic admin admin
+
+#Сводная информация по метрикам по всем проектам на сервере
+#post http://localhost:9000/api/components/search_projects?ps=50&facets=reliability_rating%2Csecurity_rating%2Csqale_rating%2Ccoverage%2Cduplicated_lines_density%2Cncloc%2Calert_status%2Clanguages%2Ctags&f=analysisDate%2CleakPeriodDate
+#Authorization: Basic admin admin
+#Информация по метрикам по отдельному проекту
+#post http://localhost:9000/api/measures/search?projectKeys=hru-module-customers%2Chru-module-pricing&metricKeys=alert_status%2Cbugs%2Creliability_rating%2Cvulnerabilities%2Csecurity_rating%2Ccode_smells%2Csqale_rating%2Cduplicated_lines_density%2Ccoverage%2Cncloc%2Cncloc_language_distribution
+#Authorization: Basic admin admin
+
+#post https://sonar.virtocommerce.com/api/measures/search?projectKeys=VC%2Cvc-module-avatax%3Adev%2Cvc-module-avatax%3Amaster%2Cvc-module-aviary-image-editor%3Adev%2Cvc-module-aviary-image-editor%3Amaster%2Cvc-module-azure-search%3Adev%2Cvc-module-azure-search%3Amaster%2Cvc-module-b2b-customer%3Adev%2Cvc-module-b2b-customer%3Amaster%2Cvc-module-b2b-extensions%3Adev%2Cvc-module-b2b-extensions%3Amaster%2Cvc-module-cache%3Adev%2Cvc-module-cache%3Amaster%2Cvc-module-cart%3Adev%2Cvc-module-cart%3Amaster%2Cvc-module-catalog%3Adev%2Cvc-module-catalog%3Amaster%2Cvc-module-catalog-csv-import%3Adev%2Cvc-module-catalog-csv-import%3Amaster%2Cvc-module-catalog-personalization%3Adev%2Cvc-module-catalog-personalization%3Amaster%2Cvc-module-catalog-publishing%3Adev%2Cvc-module-catalog-publishing%3Amaster%2Cvc-module-content%3Adev%2Cvc-module-content%3Amaster%2Cvc-module-contentful%3Amaster%2Cvc-module-core%3Adev%2Cvc-module-core%3Amaster%2Cvc-module-customer%3Adev%2Cvc-module-customer%3Amaster%2Cvc-module-datatrans%3Adev%2Cvc-module-datatrans%3Amaster%2Cvc-module-derivative-contracts%3Adev%2Cvc-module-derivative-contracts%3Amaster%2Cvc-module-derivatives%3Adev%2Cvc-module-derivatives%3Amaster%2Cvc-module-DIBS%3Adev%2Cvc-module-DIBS%3Amaster%2Cvc-module-dynamic-expressions%3Adev%2Cvc-module-dynamic-expressions%3Amaster%2Cvc-module-elastic-search%3Adev%2Cvc-module-elastic-search%3Amaster%2Cvc-module-fedex%3Amaster%2Cvc-module-find-store%3Adev%2Cvc-module-google-ecommerce-analytics%3Adev%2Cvc-module-helcim%3Adev%2Cvc-module-helcim%3Amaster%2Cvc-module-image-tools%3Adev%2Cvc-module-image-tools%3Amaster%2Cvc-module-inventory%3Adev&metricKeys=alert_status%2Cbugs%2Creliability_rating%2Cvulnerabilities%2Csecurity_rating%2Ccode_smells%2Csqale_rating%2Cduplicated_lines_density%2Ccoverage%2Cncloc%2Cncloc_language_distribution
+#Authorization: Basic admin admin
+
+#github get all VC public repos
+#GET https://api.github.com/orgs/VirtoCommerce/repos?per_page=1000&sort=updated
+
+#Set user to sonarlint-users
+post https://sonar.virtocommerce.com/api/user_groups/add_user?id=8&login=sonarlint-user&organization=virtocommerce
 Authorization: Basic admin admin
+
+#get https://sonar.virtocommerce.com/api/user_groups/search?organization=virtocommerce
+#Authorization: Basic admin admin

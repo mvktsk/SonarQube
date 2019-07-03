@@ -4,8 +4,8 @@
     "conditions": [
       { "metric": "coverage", "op": "LT", "warning": "20", "error": "" },
       { "metric": "new_coverage", "op": "LT", "warning": "20", "error": "", "period": 1 },
-      { "metric": "duplicated_lines_density", "op": "LT", "warning": "", "error": "10" },
-      { "metric": "new_duplicated_lines_density", "op": "LT", "warning": "", "error": "20", "period": 1 },
+      { "metric": "duplicated_lines_density", "op": "GT", "warning": "", "error": "10" },
+      { "metric": "new_duplicated_lines_density", "op": "GT", "warning": "", "error": "20", "period": 1 },
       { "metric": "sqale_rating", "op": "GT", "warning": "1", "error": "2" },
       { "metric": "new_maintainability_rating", "op": "GT", "warning": "", "error": "1", "period": 1 },
       { "metric": "reliability_rating", "op": "GT", "warning": "1", "error": "2" },
@@ -21,8 +21,8 @@
     "conditions": [
       { "metric": "coverage", "op": "LT", "warning": "", "error": "" },
       { "metric": "new_coverage", "op": "LT", "warning": "", "error": "", "period": 1 },
-      { "metric": "duplicated_lines_density", "op": "LT", "warning": "", "error": "25" },
-      { "metric": "new_duplicated_lines_density", "op": "LT", "warning": "", "error": "30", "period": 1 },
+      { "metric": "duplicated_lines_density", "op": "GT", "warning": "", "error": "25" },
+      { "metric": "new_duplicated_lines_density", "op": "GT", "warning": "", "error": "30", "period": 1 },
       { "metric": "sqale_rating", "op": "GT", "warning": "1", "error": "" },
       { "metric": "new_maintainability_rating", "op": "GT", "warning": "", "error": "4", "period": 1 },
       { "metric": "reliability_rating",  "op": "GT", "warning": "1",  "error": "" },
@@ -38,8 +38,8 @@
     "conditions": [
       { "metric": "coverage", "op": "LT", "warning": "80", "error": "" },
       { "metric": "new_coverage", "op": "LT", "warning": "80", "error": "", "period": 1 },
-      { "metric": "duplicated_lines_density", "op": "LT", "warning": "", "error": "10" },
-      { "metric": "new_duplicated_lines_density", "op": "LT", "warning": "", "error": "10", "period": 1 },
+      { "metric": "duplicated_lines_density", "op": "GT", "warning": "", "error": "10" },
+      { "metric": "new_duplicated_lines_density", "op": "GT", "warning": "", "error": "10", "period": 1 },
       { "metric": "sqale_rating", "op": "GT", "warning": "", "error": "1" },
       { "metric": "new_maintainability_rating", "op": "GT", "warning": "", "error": "1", "period": 1},
       { "metric": "reliability_rating", "op": "GT", "warning": "", "error": "1" },
@@ -55,8 +55,8 @@
     "conditions": [
       { "metric": "coverage", "op": "LT", "warning": "", "error": "" },
       { "metric": "new_coverage", "op": "LT", "warning": "", "error": "", "period": 1 },
-      { "metric": "duplicated_lines_density", "op": "LT", "warning": "", "error": "20" },
-      { "metric": "new_duplicated_lines_density", "op": "LT", "warning": "", "error": "25", "period": 1 },
+      { "metric": "duplicated_lines_density", "op": "GT", "warning": "", "error": "20" },
+      { "metric": "new_duplicated_lines_density", "op": "GT", "warning": "", "error": "25", "period": 1 },
       { "metric": "sqale_rating", "op": "GT", "warning": "1", "error": "3" },
       { "metric": "new_maintainability_rating", "op": "GT", "warning": "", "error": "2", "period": 1 },
       { "metric": "reliability_rating",  "op": "GT",  "warning": "1",  "error": "3" },
