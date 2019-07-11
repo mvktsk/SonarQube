@@ -16,13 +16,14 @@ Scripts and configuration files can be applied on a new SonarQube installation t
 To apply the settings on the new SonarQube installation standard SonarQube API used.
 For configuration applying, js scripts are created that read configuration files and call the corresponding SonarQube API to apply the settings.
 
-Each js script contain *options* object and *uri* const. Options describe SonarQube connection parameters, uri - connection string name to the server.
+connectionOptions.js contain *options*, *http* objects and *url* const. Options describe SonarQube connection parameters, http - "transport protocol" module could be http or https (if you  use https dont forget set actual options.port value, usually 443)  url - connection string name to the server.
 
 ```js
-const uri = 'localhost';
+const http = require('http');
+const url = 'localhost';
 var options = {
     auth: 'admin:admin',
-    hostname: uri,
+    hostname: url,
     port: 9000,
     path: '/',
     method: 'POST'
@@ -31,7 +32,8 @@ var options = {
 
 Before scripts execution, fill in with your parameters
 
-* uri - your server url or IP
+* http - your transport protocol http or https
+* url - your server url or IP
 * options.auth - login:password your SonarQube admin user
 * options.port your SonarQube port
 

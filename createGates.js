@@ -1,23 +1,14 @@
-const http = require('http');
-const uri = 'localhost';
 const gateUri = '/api/qualitygates/create?name=';
 const conditionUri = '/api/qualitygates/create_condition?gateId=';
 const defaultGateUri = '/api/qualitygates/set_as_default?id=';
 var gates = require('./gates.json');
-
-var options = {
-    auth: 'admin:admin',
-    hostname: uri,
-    port: 9000,
-    path: '/',
-    method: 'POST'
-};
+var connection = require('./connectionOptions');
 
 gates.forEach( gate => {
     
-    options.path = gateUri + gate.gateName;
+    connection.options.path = gateUri + gate.gateName;
     
-    gatePostRequest = http.request( options, (resp) => {
+    gatePostRequest = connection.http.request( connection.options, (resp) => {
         let data = '';
             
         // A chunk of data has been recieved.
@@ -47,9 +38,9 @@ gates.forEach( gate => {
     
     function createGateConditions (gate){
         gate.conditions.forEach( condition => {
-            options.path = createGateConditionUri (gate.gateId, condition);
+            connection.options.path = createGateConditionUri (gate.gateId, condition);
             
-            conditionPostRequest = http.request(options);
+            conditionPostRequest = connection.http.request(connection.options);
             
             conditionPostRequest.on("error", (err) => {
                 console.log("Error: " + err.message);
@@ -59,9 +50,9 @@ gates.forEach( gate => {
     };
 
     function setDefaultGate (gateId){
-        options.path = defaultGateUri + gateId;
+        connection.options.path = defaultGateUri + gateId;
         
-        defaultGatePostRequest = http.request(options);
+        defaultGatePostRequest = connection.http.request(connection.options);
         
         defaultGatePostRequest.on("error", (err) => {
             console.log("Error: " + err.message);

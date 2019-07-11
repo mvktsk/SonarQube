@@ -1,19 +1,7 @@
-const http = require('http');
-const uri = 'localhost';
 const restoreUri = '/api/qualityprofiles/restore';
 const setDefaultUri = '/api/qualityprofiles/set_default';
+var connection = require('./connectionOptions');
 
-var options = {
-    auth: 'admin:admin',
-    hostname: uri,
-    port: 9000,
-    path: restoreUri,
-    method: 'POST',
-    headers: {
-        'Content-Type': 'multipart/form-data; boundary=',
-        'Content-Length': 0
-    }
-};
 const profiles = [
     "./virtoCssProfile.xml",
     "./virtoTypeScriptProfile.xml"
@@ -21,8 +9,12 @@ const profiles = [
 
 var boundary = String(Math.random()).slice(2);
 var boundaryMiddle = '--' + boundary + '\r\n';
-var boundaryLast = '--' + boundary + '--\r\n'
+var boundaryLast = '--' + boundary + '--\r\n';
 
+connection.options.headers = {
+    'Content-Type': 'multipart/form-data; boundary=',
+    'Content-Length': 0
+};
 
 profiles.forEach(profile => {
     
@@ -31,10 +23,11 @@ profiles.forEach(profile => {
     profileData += readTextFile(profile) + '\r\n';
     profileData += boundaryLast;
     
-    options.headers["Content-Type"] = 'multipart/form-data; boundary=' + boundary;
-    options.headers["Content-Length"] = Buffer.byteLength(profileData);
+    connection.options.path = restoreUri;
+    connection.options.headers["Content-Type"] = 'multipart/form-data; boundary=' + boundary;
+    connection.options.headers["Content-Length"] = Buffer.byteLength(profileData);
     
-    createProfilePostRequest = http.request(options, (res) => {
+    createProfilePostRequest = connection.http.request(connection.options, (res) => {
         
         let data = '';
 
@@ -80,14 +73,14 @@ function readTextFile(file){
 
 function setDefaultProfile (profileKey){
     
-    var setDefaultOptions = Object.assign({}, options);
+    var setDefaultOptions = Object.assign({}, connection.options);
     delete setDefaultOptions.headers;
 
     profileKey = 'profileKey=' + profileKey;
     
     setDefaultOptions.path = setDefaultUri + '?' + profileKey;
 
-    setDefaultPostRequest = http.request(setDefaultOptions);
+    setDefaultPostRequest = connection.http.request(setDefaultOptions);
     setDefaultPostRequest.on("error", (err) => {
         console.log("Error: " + err.message);
     });
