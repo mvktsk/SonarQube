@@ -1,0 +1,28 @@
+[
+    {
+        "key": "sonar.coverage.exclusions",
+        "values": [
+            "**/Scripts/**",
+            "**/Migrations/**"
+        ]
+    },
+    {
+        "key": "sonar.cpd.exclusions",
+        "values": [
+            "**/Scripts/**",
+            "**/Migrations/**"
+        ]
+    },
+    {
+        "key": "sonar.exclusions",
+        "values": [
+            "**/AutoRestClients/**",
+            "**/wwwroot/lib/**",
+            "**/*jquery*.js",
+            "**/*bootstrap*.js",
+            "assets/*",
+            "**/Swagger/UI/**",
+            "**/api-clients.ts"
+        ]
+    }
+]
